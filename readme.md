@@ -2,6 +2,6 @@
 
 - En construccion
 
-Para ejecutar istema por favor ejecute:
+Para ejecutar sistema por favor ejecute:
 
 ```npm install react```
