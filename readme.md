@@ -2,6 +2,6 @@
 
 - En construccion
 
-Para ejecutar istema por favor digite 
+Para ejecutar istema por favor ejecute:
 
---nmp install nmp--
+```npm install react```
