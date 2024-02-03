@@ -1,0 +1,105 @@
+
+/*style del Index*/
+
+
+/*Color del body*/
+
+/*Titulo principal*/
+.cabecera .tituloppal {
+    font-family: 'Lucida Sans';
+    font-weight: 600;
+    color: red;
+    text-align: center;
+    padding: 10px;
+}
+
+/*links, decoracion y efectos de cabecera principal*/
+.menuppal {
+    margin: 10px;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 20px;
+}
+
+.linkmenuppal a {
+    text-decoration: none;
+    font-family: 'Lucida Sans'
+}
+
+a:hover {
+    color: red;
+    font-weight: bold;
+    transition: 200ms;
+}
+
+.linkmenuppal {
+    padding: 7px;
+}
+
+/*links, decoracion y efectos del menu izquierdo*/
+
+.cuerpocentral {
+    background-image: url(imagenes/fondocentro.jpg); border-radius: 20px;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 342px;
+}
+
+.menuizq {
+    float: left;
+    width: 20%;
+    height: 322px;
+    margin: 10px;
+    background-color: rgb(105, 93, 93); opacity: 0.8;
+    border-radius: 20px;
+}
+
+.menuizq th {
+    text-align: left;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Lucida Sans';
+}
+
+li:hover {
+    color: red;
+}
+
+.cuerpocentral p {
+    color: white;
+    font-weight: bold;
+    font-family: 'Lucida Sans';
+    text-align: center;
+    padding: 10px;
+}
+
+.cuerpocentral a {
+    color: white;
+}
+
+.cuerpocentral a:hover {
+    color: red;
+}
+
+.cuerpocentral ul {
+    font-weight: bold;
+    font-family: 'Lucida Sans';
+    text-align: center;
+    color: greenyellow;
+}
+
+footer img {
+    height: 322px;
+    width: 98%;
+    padding: 10px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+
+/*Style de versiones.html*/
