@@ -1,0 +1,17 @@
+all:
+  hosts:
+  children:
+    tomcat:
+      hosts:
+        tomcat1:
+        tomcat2:
+    mysql:
+      hosts:
+        mysql1:
+    debian:
+      hosts:
+        debian1:
+    ubuntu:
+      hosts:
+        ubuntu1:
+

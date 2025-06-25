@@ -1,0 +1,43 @@
+#Examinar y hacer ping
+---
+- name: PrimerPlay
+  hosts: tomcat, debian
+
+  tasks:
+  - name: Hacer un ping 
+    ansible.builtin.ping:
+  - name: Crear archivodr
+    ansible.builtin.shell:
+      touch /tmp/archivo1.txt
+
+#Parar aparhe e instala nginx
+- name: instalar nginx
+  hosts: debian
+
+  tasks: 
+  - name: Parar apache
+    include_tasks: incluir_tarea.yaml
+
+  - name: Instalar nginx
+    ansible.builtin.apt:
+      name: nginx
+      state: present
+  - name: Arrancar nginx
+    ansible.builtin.service:
+      name: nginx
+      state: started
+
+#Copiar HTML para hacer funcionar nginx
+
+- name: Arrancar default site nginx
+  hosts: debian, tomcat
+  become: yes
+
+  tasks: 
+  - name: Copiar HTML
+    ansible.builtin.copy:
+      src: /home/felipe/.ansible/recursos/index.html
+      dest: /var/www/html/
+      owner: root
+      group: root
+      mode: '0644'

@@ -1,0 +1,26 @@
+- hosts: sl-gsvoip21
+  gather_facts: true
+  become: yes
+
+  tasks:
+    - name: copy crowdstrike rpm
+      copy:
+        src: /etc/ansible/files/individual_files/rpms/falcon-sensor-7.04.0-15907.el8.x86_64.rpm
+        dest: /tmp/falcon-sensor-7.04.0-15907.el8.x86_64.rpm
+
+    - name: install falcon
+      yum:
+        name: /tmp/falcon-sensor-7.04.0-15907.el8.x86_64.rpm
+        state: present
+        disable_gpg_check: true
+    
+    - name: configure sid
+      command: /opt/CrowdStrike/falconctl -s --cid=MASKED
+      ignore_errors: yes
+      
+    - name: start falcon
+      command: systemctl start falcon-sensor
+
+    - name: enable falcon
+      command: systemctl enable falcon-sensor
+      
