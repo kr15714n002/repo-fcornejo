@@ -1,0 +1,29 @@
+---
+# tasks file for users
+- name: manage user account and home directory
+  ansible.builtin.user:
+    name: "{{ item.username }}"
+    create_home: true
+    state: "{{ item.state }}"
+    remove: yes  # Also removes home dir and mail spool
+    shell: /bin/bash
+  loop: "{{ users | default([]) + host_users | default([]) }}"
+
+- name: allow user to run all commands as root
+  community.general.sudoers:
+    name: allow-all
+    state: "{{ item.state }}"
+    user: "{{ item.username }}"
+    commands: ALL
+    nopassword: true
+  loop: "{{ users | default([]) + host_users | default([]) }}"
+
+- name: Add SSH key for users
+  authorized_key:
+    user: "{{ item.username }}"
+    state: "{{ item.state }}"
+    key: "{{ item.ssh_key }}"
+    manage_dir: true
+    exclusive: true
+  when: item.ssh_key | default(false)
+  loop: "{{ users | default([]) + host_users | default([]) }}"

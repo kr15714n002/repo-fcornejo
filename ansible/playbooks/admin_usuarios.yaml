@@ -1,0 +1,7 @@
+# Connfiguracion base que ejecuta roles de users y fluent-bit
+---
+- name: executes base configuration 
+  hosts: all 
+  become: true
+  roles: 
+    - role: users 
